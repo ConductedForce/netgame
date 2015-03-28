@@ -24,4 +24,7 @@
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Simple.vcproj" />
+  </ItemGroup>
 </Project>

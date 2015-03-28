@@ -88,6 +88,5 @@ int main( int argc, char * argv[] )
 	// shutdown socket layer
 	
 	ShutdownSockets();
-	system("pause");
 	return 0;
 }
