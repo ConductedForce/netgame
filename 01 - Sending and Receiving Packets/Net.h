@@ -1,6 +1,6 @@
 /*
 	Simple Network Library from "Networking for Game Programmers"
-	http://www.gaffer.org/networking-for-game-programmers
+	http://www.gafferongames.com/networking-for-game-programmers
 	Author: Glenn Fiedler <gaffer@gaffer.org>
 */
 
@@ -24,7 +24,7 @@
 #if PLATFORM == PLATFORM_WINDOWS
 
 	#include <winsock2.h>
-	#pragma comment( lib, "wsock32.lib" )
+	#pragma comment( lib, "ws2_32.lib" )
 	#pragma warning( disable : 4996  ) // get rid of all secure crt warning. (sscanf_s)
 
 #elif PLATFORM == PLATFORM_MAC || PLATFORM == PLATFORM_UNIX

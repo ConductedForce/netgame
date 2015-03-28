@@ -1,6 +1,6 @@
 /*
 	Sending and Receiving Packets Example
-	From "Networking for Game Programmers" - http://www.gaffer.org/networking-for-game-programmers
+	From "Networking for Game Programmers" - http://www.gafferongames.com/networking-for-game-programmers
 	Author: Glenn Fiedler <gaffer@gaffer.org>
 */
 
@@ -18,7 +18,7 @@ int main( int argc, char * argv[] )
 {
 	// initialize socket layer
 
-	if ( !InitializeSockets() )
+	if (InitializeSockets()==false)
 	{
 		printf( "failed to initialize sockets\n" );
 		return 1;
@@ -87,6 +87,6 @@ int main( int argc, char * argv[] )
 	// shutdown socket layer
 	
 	ShutdownSockets();
-
+	system("pause");
 	return 0;
 }
