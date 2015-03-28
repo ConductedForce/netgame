@@ -18,7 +18,7 @@ int main( int argc, char * argv[] )
 {
 	// initialize socket layer
 
-	if (InitializeSockets()==false)
+	if (!InitializeSockets())
 	{
 		printf( "failed to initialize sockets\n" );
 		return 1;
@@ -45,8 +45,9 @@ int main( int argc, char * argv[] )
 	vector<Address> addresses;
 
 	string line;
-	ifstream file( "addresses.txt" );
-	if ( !file.is_open() )
+	ifstream file;
+	file.open( "addresses.txt");
+	if ( file.fail() )
 	{
 		printf( "failed to open 'addresses.txt'\n" );
 		return 1;
