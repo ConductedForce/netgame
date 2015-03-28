@@ -1,6 +1,6 @@
 /*
 	Server using Virtual Connection over UDP
-	From "Networking for Game Programmers" - http://www.gaffer.org/networking-for-game-programmers
+	From "Networking for Game Programmers" - http://www.gafferongames.com/networking-for-game-programmers
 	Author: Glenn Fiedler <gaffer@gaffer.org>
 */
 
