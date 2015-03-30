@@ -17,7 +17,7 @@ using namespace net;
 #ifdef DEBUG
 #define check assert
 #else
-#define check(n) if ( !n ) { printf( "check failed\n" ); exit(1); }
+#define check(n) if ( n==false) { printf( "check failed\n" ); exit(1); }
 #endif
 
 void test_node_join()
