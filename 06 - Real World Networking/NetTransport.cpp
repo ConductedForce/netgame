@@ -35,7 +35,7 @@ void net::Transport::Shutdown()
 
 net::Transport * net::Transport::Create()
 {
-	Transport * transport = NULL;
+	Transport * transport = nullptr;
 	
 	assert( transportCount >= 0 );
 	
@@ -106,10 +106,10 @@ bool net::TransportLAN::GetHostName( char hostname[], int size )
 
 net::TransportLAN::TransportLAN()
 {
-	mesh = NULL;
-	node = NULL;
-	beacon = NULL;
-	listener = NULL;
+	mesh = nullptr;
+	node = nullptr;
+	beacon = nullptr;
+	listener = nullptr;
 	beaconAccumulator = 1.0f;
 	connectingByName = false;
 	connectFailed = false;
@@ -2544,7 +2544,7 @@ void test_mesh_nodes()
 
 #endif
 
-void TransportLAN::UnitTest()
+void net::TransportLAN::UnitTest()
 {
 	#ifdef DEBUG
 	

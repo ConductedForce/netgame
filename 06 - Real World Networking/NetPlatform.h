@@ -27,7 +27,7 @@
 
 #include <assert.h>
 #include <stdio.h>
-#include <unistd.h>
+
 
 namespace net
 {
@@ -41,6 +41,8 @@ namespace net
 	}
 
 #else
+
+	#include <unistd.h>
 
 	inline void wait_seconds( float seconds ) { usleep( (int) ( seconds * 1000000.0f ) ); }
 

@@ -8,7 +8,7 @@
 #define NET_LAN_NODE_MESH_H
 
 #include "NetSockets.h"
-#include "../NetReliability.h"
+#include "NetReliability.h"
 
 #include <assert.h>
 #include <vector>
@@ -248,7 +248,7 @@ namespace net
 					else if ( nodes[i].mode == NodeState::Connected )
 					{
 						// node is connected: send "update" packets
-						unsigned char packet[5+6*nodes.size()];
+						unsigned char *packet = new unsigned char[5+6*nodes.size()];
 						packet[0] = (unsigned char) ( ( protocolId >> 24 ) & 0xFF );
 						packet[1] = (unsigned char) ( ( protocolId >> 16 ) & 0xFF );
 						packet[2] = (unsigned char) ( ( protocolId >> 8 ) & 0xFF );
@@ -484,7 +484,7 @@ namespace net
 			while ( true )
 			{
 				Address sender;
-				unsigned char data[maxPacketSize];
+				unsigned char *data = new unsigned char[maxPacketSize];
 				int size = socket.Receive( sender, data, sizeof(data) );
 				if ( !size )
 					break;
