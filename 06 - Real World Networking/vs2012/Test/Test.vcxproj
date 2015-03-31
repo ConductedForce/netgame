@@ -68,10 +68,13 @@
     <ClCompile Include="..\..\Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\lan\NetAddress.h" />
     <ClInclude Include="..\..\lan\NetBeacon.h" />
     <ClInclude Include="..\..\lan\NetConnection.h" />
     <ClInclude Include="..\..\lan\NetNodeMesh.h" />
     <ClInclude Include="..\..\lan\NetReliability.h" />
+    <ClInclude Include="..\..\lan\NetSockets.h" />
+    <ClInclude Include="..\..\NetPlatform.h" />
     <ClInclude Include="..\..\NetTransport.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

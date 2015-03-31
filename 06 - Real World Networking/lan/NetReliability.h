@@ -1,6 +1,6 @@
 /*
 	Simple Network Library from "Networking for Game Programmers"
-	http://www.gaffer.org/networking-for-game-programmers
+	http://www.gafferongames.com/networking-for-game-programmers
 	Author: Glenn Fiedler <gaffer@gaffer.org>
 */
 
