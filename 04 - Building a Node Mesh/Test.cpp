@@ -89,7 +89,7 @@ void test_node_join_busy()
 	const int ProtocolId = 0x12345678;
 	const float DeltaTime = 0.001f;
 	const float SendRate = 0.001f;
-	const float TimeOut = 0.1f;
+	const float TimeOut = 0.2f;
 	
 	Mesh mesh( ProtocolId, MaxNodes, SendRate, TimeOut );
 	check( mesh.Start( MeshPort ) );
@@ -106,7 +106,8 @@ void test_node_join_busy()
 	
 	check( !node.JoinFailed() );
 
-	Node busy( ProtocolId, SendRate, TimeOut );
+    // set shorter timeout for busy node so that it times out before 'node'
+	Node busy( ProtocolId, SendRate, TimeOut/2.0f );
 	check( busy.Start( NodePort + 1 ) );
 	
 	busy.Join( Address(127,0,0,1,MeshPort) );
