@@ -1398,7 +1398,8 @@ namespace net
 					{
 						// node is connected: send "update" packets
 						unsigned char *packet;
-						packet = new unsigned char[5+6*nodes.size()];
+						const int packet_len = 5+6*nodes.size();
+						packet = new unsigned char[packet_len];
 						packet[0] = (unsigned char) ( ( protocolId >> 24 ) & 0xFF );
 						packet[1] = (unsigned char) ( ( protocolId >> 16 ) & 0xFF );
 						packet[2] = (unsigned char) ( ( protocolId >> 8 ) & 0xFF );
@@ -1415,7 +1416,7 @@ namespace net
 							ptr[5] = (unsigned char) ( ( nodes[j].address.GetPort() ) & 0xFF );
 							ptr += 6;
 						}
-						socket.Send( nodes[i].address, packet, sizeof(packet) );
+						socket.Send( nodes[i].address, packet, packet_len );
 					}
 				}
 				sendAccumulator -= sendRate;
@@ -1636,7 +1637,7 @@ namespace net
 				Address sender;
 				unsigned char *data;
 				data = new unsigned char[maxPacketSize];
-				int size = socket.Receive( sender, data, sizeof(data) );
+				int size = socket.Receive( sender, data, maxPacketSize);
 				if ( !size )
 					break;
 				ProcessPacket( sender, data, size );
