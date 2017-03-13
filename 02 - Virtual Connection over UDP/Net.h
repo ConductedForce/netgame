@@ -148,8 +148,8 @@ namespace net
 
 	inline bool InitializeSockets()
 	{
-		#if PLATFORM == PLATFORM_WINDOWS 
-		WSADATA WsaData;
+		#if PLATFORM == PLATFORM_WINDOWS
+	    WSADATA WsaData;
 		return WSAStartup( MAKEWORD(2,2), &WsaData ) == NO_ERROR;
 		#else
 		return true;
@@ -440,7 +440,7 @@ namespace net
 			assert( running );
 			if ( address.GetAddress() == 0 )
 				return false;
-			unsigned char* packet = new unsigned char[size+4];
+			unsigned char * packet = new unsigned char[size+4];
 			packet[0] = (unsigned char) ( protocolId >> 24 );
 			packet[1] = (unsigned char) ( ( protocolId >> 16 ) & 0xFF );
 			packet[2] = (unsigned char) ( ( protocolId >> 8 ) & 0xFF );
@@ -450,11 +450,11 @@ namespace net
 			delete [] packet;
 			return res;
 		}
-		
+
 		virtual int ReceivePacket( unsigned char data[], int size )
 		{
 			assert( running );
-			unsigned char* packet = new unsigned char[size+4];
+			unsigned char * packet = new unsigned char[size+4];
 			Address sender;
 			int bytes_read = socket.Receive( sender, packet, size + 4 );
 			if ( bytes_read == 0 )
@@ -468,9 +468,9 @@ namespace net
 				return 0;
 			}
 			if ( packet[0] != (unsigned char) ( protocolId >> 24 ) || 
-				 packet[1] != (unsigned char) ( ( protocolId >> 16 ) & 0xFF ) ||
-				 packet[2] != (unsigned char) ( ( protocolId >> 8 ) & 0xFF ) ||
-				 packet[3] != (unsigned char) ( protocolId & 0xFF ) )
+				packet[1] != (unsigned char) ( ( protocolId >> 16 ) & 0xFF ) ||
+				packet[2] != (unsigned char) ( ( protocolId >> 8 ) & 0xFF ) ||
+				packet[3] != (unsigned char) ( protocolId & 0xFF ) )
 			{
 				delete [] packet;
 				return 0;
@@ -499,7 +499,7 @@ namespace net
 			delete [] packet;
 			return 0;
 		}
-		
+
 		int GetHeaderSize() const
 		{
 			return 4;
